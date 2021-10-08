@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'authz.apps.AuthzConfig',
     'autos.apps.AutosConfig',
     'cats.apps.CatsConfig',
+    'dealer.apps.DealerConfig',
     
     'django.contrib.admin',
     'django.contrib.auth',
