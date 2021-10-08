@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '357f-41-42-189-113.ngrok.io',
+    '1c3f-41-42-189-113.ngrok.io',
 ]
 
 
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'authz.apps.AuthzConfig',
     'autos.apps.AutosConfig',
+    'cats.apps.CatsConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

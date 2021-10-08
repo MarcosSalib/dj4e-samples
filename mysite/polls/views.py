@@ -7,6 +7,7 @@ from .models import Choice, Question
 
 
 class IndexView(generic.ListView):
+    # a page that displays the latest few questions
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
@@ -16,11 +17,13 @@ class IndexView(generic.ListView):
 
 
 class DetailView(generic.DetailView):
+    # a page that displays a question text, with no results but with a form to vote
     model = Question
     template_name = 'polls/detail.html'
 
 
 class ResultsView(generic.DetailView):
+    # a page that handles voting for a particular choice in a particular question
     model = Question
     template_name = 'polls/results.html'
 
@@ -30,10 +33,11 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', {
+        context = {
             'question': question,
             'error_message': "You didn't select a choice.",
-        })
+        }
+        return render(request, 'polls/detail.html', context)
     else:
         selected_choice.votes += 1
         selected_choice.save()
@@ -44,3 +48,4 @@ def vote(request, question_id):
 
 def owner(request):
     return HttpResponse("Hello, world. e12adf20 is the polls owner.")
+
