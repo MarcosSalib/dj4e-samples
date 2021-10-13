@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.views.generic import TemplateView
 
+# TODO: include year, month in general views
+
 # https://docs.djangoproject.com/en/3.0/topics/http/urls/
 app_name = 'dealer'
 urlpatterns = [
